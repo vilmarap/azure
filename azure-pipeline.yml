@@ -2,9 +2,8 @@ trigger:
 - main
 
 variables:
-  docker_image_name: 'production/image-base-python'
   docker_registry: 'labvix.azurecr.io'
-  docker_registry_account: 'labvix'
+  docker_registry_account: 'dockerTESTE'
 
 pool:
  name: Default
@@ -16,6 +15,6 @@ steps:
   displayName: 'Build and Publish Docker Image'
   inputs:
     containerRegistry: '$(docker_registry_account)'
-    repository: '$(docker_image_name)'
+    repository: '$(docker_registry)'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
