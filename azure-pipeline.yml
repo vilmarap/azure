@@ -4,11 +4,6 @@ trigger:
 variables:
   docker_registry: 'labvix.azurecr.io'
   docker_registry_account: 'dockerTESTE'
-
-pool:
- name: Default
- demands:
-   - Agent.OS -equals Linux 
    
 steps:
 - task: Docker@2
