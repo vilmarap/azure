@@ -1,0 +1,24 @@
+ines (19 sloc)  500 Bytes
+  
+trigger:
+- main
+
+variables:
+  docker_image_name: 'infra/production/application-name'
+  docker_registry: 'labvix.azurecr.io'
+  docker_registry_account: 'labvix'
+  DOCKER_BUILDKIT: 1
+
+pool:
+ name: Default
+ demands:
+   - Agent.OS -equals Linux 
+   
+steps:
+- task: Docker@2
+  displayName: 'Build and Publish Docker Image'
+  inputs:
+    containerRegistry: '$(docker_registry_account)'
+    repository: '$(docker_image_name)'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
