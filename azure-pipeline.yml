@@ -1,13 +1,10 @@
-ines (19 sloc)  500 Bytes
-  
 trigger:
 - main
 
 variables:
-  docker_image_name: 'infra/production/application-name'
+  docker_image_name: 'production/image-base-python'
   docker_registry: 'labvix.azurecr.io'
   docker_registry_account: 'labvix'
-  DOCKER_BUILDKIT: 1
 
 pool:
  name: Default
